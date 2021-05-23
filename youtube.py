@@ -6,13 +6,17 @@ import google_auth_oauthlib.flow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
+from google.oauth2 import service_account
 
 SCOPES = ['https://www.googleapis.com/auth/yt-analytics.readonly']
 
 API_SERVICE_NAME = 'youtubeAnalytics'
 API_VERSION = 'v2'
+PATH_TO_CREDENTIALS = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+
 CLIENT_SECRETS_FILE = 'client_secret_648544238624-m3i371c0sdlu4okosqbj0op0rct9ho0n.apps.googleusercontent.com.json'
 def get_service():
+
   flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRETS_FILE, SCOPES)
   credentials = flow.run_console()
   return build(API_SERVICE_NAME, API_VERSION, credentials = "648544238624-m3i371c0sdlu4okosqbj0op0rct9ho0n.apps.googleusercontent.com")
@@ -21,6 +25,8 @@ def execute_api_request(client_library_function, **kwargs):
   response = client_library_function(
     **kwargs
   ).execute()
+
+
 
   print(response)
 
