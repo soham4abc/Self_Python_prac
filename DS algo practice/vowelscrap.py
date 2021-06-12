@@ -7,4 +7,9 @@ def vowelcheck(st):
             print(st[i],end="")
     print("\n")
 
+print("enter number of names")
+a=int(input())
+for i in range (1,a+1):
+    s=input()
+    vowelcheck(s)
 
