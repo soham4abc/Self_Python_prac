@@ -12,7 +12,7 @@ def Diamond(rows):
 
             # loop to print star
         while n != (2 * i - 1):
-            print("*", end="")
+            print("$", end="")
             n = n + 1
         n = 0
 
@@ -29,7 +29,7 @@ def Diamond(rows):
 
         # loop to print star 
         while n <= (2 * (rows - i) - 1):
-            print("*", end="")
+            print("$", end="")
             n = n + 1
         n = 1
         print()
